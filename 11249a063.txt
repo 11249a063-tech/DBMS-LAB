@@ -1,0 +1,201 @@
+
+SQL*Plus: Release 11.2.0.1.0 Production on Tue Aug 11 13:34:53 2026
+
+Copyright (c) 1982, 2010, Oracle.  All rights reserved.
+
+Enter user-name: A063@db2021
+Enter password:
+
+Connected to:
+Oracle Database 11g Release 11.2.0.1.0 - Production
+
+SQL> CREATE TABLE course2 (
+  2  Course_ID NUMBER,
+  3  Credit NUMBER,
+  4  Departement VARCHAR2\
+  5
+SQL> CREATE TABLE COURSE2 (
+  2      Course_ID NUMBER,
+  3      Course_Name VARCHAR2(50),
+  4      Credits NUMBER,
+  5      Department VARCHAR2(50)
+  6    );
+
+Table created.
+
+SQL> DESC Course2;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ COURSE_ID                                          NUMBER
+ COURSE_NAME                                        VARCHAR2(50)
+ CREDITS                                            NUMBER
+ DEPARTMENT                                         VARCHAR2(50)
+
+SQL> CREATE TABLE STUDENT2 (
+  2  Student_ID NUMBER,
+  3  Student_Name VARCHAR2(50),
+  4  Age NUMBER,
+  5  Department VARCHAR(50)
+  6  );
+
+Table created.
+
+SQL> DESC Student2;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ STUDENT_ID                                         NUMBER
+ STUDENT_NAME                                       VARCHAR2(50)
+ AGE                                                NUMBER
+ DEPARTMENT                                         VARCHAR2(50)
+
+SQL> ALTER TABLE Student3 ADD Email VARCHAR2(100);
+ALTER TABLE Student3 ADD Email VARCHAR2(100)
+*
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+SQL> CREATE TABLE STUDENT2 (
+  2     Student_ID NUMBER,
+  3     Student_Name VARCHAR2(50),
+  4     Age NUMBER,
+  5     Department VARCHAR2(50)
+  6     );
+CREATE TABLE STUDENT2 (
+             *
+ERROR at line 1:
+ORA-00955: name is already used by an existing object
+
+
+SQL> CREATE TABLE STUDENT2 (
+  2     Student_ID NUMBER,
+  3     Student_Name VARCHAR2(50),
+  4     Age NUMBER,
+  5     Department VARCHAR2(50)
+  6     );
+CREATE TABLE STUDENT2 (
+             *
+ERROR at line 1:
+ORA-00955: name is already used by an existing object
+
+
+SQL> CREATE TABLE STUDENT2 (
+  2           Student_ID NUMBER,
+  3           Student_Name VARCHAR2(50),
+  4           Age NUMBER,
+  5           Department VARCHAR2(50)
+  6       );
+CREATE TABLE STUDENT2 (
+             *
+ERROR at line 1:
+ORA-00955: name is already used by an existing object
+
+
+SQL> CREATE TABLE STUDENT3 (
+  2           Student_ID NUMBER,
+  3           Student_Name VARCHAR2(50),
+  4           Age NUMBER,
+  5           Department VARCHAR2(50)
+  6       );
+
+Table created.
+
+SQL> DESC STUDENT3;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ STUDENT_ID                                         NUMBER
+ STUDENT_NAME                                       VARCHAR2(50)
+ AGE                                                NUMBER
+ DEPARTMENT                                         VARCHAR2(50)
+
+SQL> ALTER TABLE STUDENT3 ADD EMAIL VARCHAR2(100);
+
+Table altered.
+
+SQL> DESC STUDENT3;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ STUDENT_ID                                         NUMBER
+ STUDENT_NAME                                       VARCHAR2(50)
+ AGE                                                NUMBER
+ DEPARTMENT                                         VARCHAR2(50)
+ EMAIL                                              VARCHAR2(100)
+
+SQL> ALTER TABLE STUDENT3 MODIFY STUDENT
+  2
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL>
+SQL> ALTER TABLE STUDENT3 MODIFY STUDENT
+  2  ALTER TABLE STUDENT3 MODIFY STUDENT
+  3  ALTER TABLE STUDENT3 MODIFY STUDENT_NAME VARCHAR(100);
+ALTER TABLE STUDENT3 MODIFY STUDENT
+*
+ERROR at line 2:
+ORA-00902: invalid datatype
+
+
+SQL> ALTER TABLE STUDENT3 MODIFY STUDENT
+  2  ALTER TABLE STUDENT3 MODIFY STUDENT_NAME VARCHAR2(100);
+ALTER TABLE STUDENT3 MODIFY STUDENT_NAME VARCHAR2(100)
+*
+ERROR at line 2:
+ORA-00902: invalid datatype
+
+
+SQL> ALTER TABLE STUDENT3 MODIFY STUDENT_NAME VARCHAR2(100);
+
+Table altered.
+
+SQL> DESC STUDENT3;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ STUDENT_ID                                         NUMBER
+ STUDENT_NAME                                       VARCHAR2(100)
+ AGE                                                NUMBER
+ DEPARTMENT                                         VARCHAR2(50)
+ EMAIL                                              VARCHAR2(100)
+
+SQL> ALTER TABLE STUDENT3 RENAME COLUMN AGE TO STUDENT_AGE;
+
+Table altered.
+
+SQL> DESC STUDENT3;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ STUDENT_ID                                         NUMBER
+ STUDENT_NAME                                       VARCHAR2(100)
+ STUDENT_AGE                                        NUMBER
+ DEPARTMENT                                         VARCHAR2(50)
+ EMAIL                                              VARCHAR2(100)
+
+SQL> ALTER TABLE STUDENT3 DROP COLUMN EMAIL;
+
+Table altered.
+
+SQL> DESC STUDENT3;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ STUDENT_ID                                         NUMBER
+ STUDENT_NAME                                       VARCHAR2(100)
+ STUDENT_AGE                                        NUMBER
+ DEPARTMENT                                         VARCHAR2(50)
+
+SQL> CREATE TABLE STUDENT3 (
+  2           Student_ID NUMBER,
+  3           Student_Name VARCHAR2(50),
+  4           Age NUMBER,
+  5           Department VARCHAR2(50)
+  6
+SQL>
+SQL>
+SQL>
+SQL>
