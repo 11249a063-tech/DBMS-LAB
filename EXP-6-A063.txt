@@ -1,0 +1,192 @@
+
+SQL> CREATE TABLE STUDENT8
+  2  (
+  3   STUDENT_ID NUMBER(5) PRIMARY KEY,
+  4   STUDENT_NAME VARCHAR2(30),
+  5   DEPARTMENT VARCHAR2(20),
+  6   MARKS NUMBER(3)
+  7  );
+
+Table created.
+
+SQL> DESC STUDENT8;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ STUDENT_ID                                NOT NULL NUMBER(5)
+ STUDENT_NAME                                       VARCHAR2(30)
+ DEPARTMENT                                         VARCHAR2(20)
+ MARKS                                              NUMBER(3)
+
+SQL> INSERT INTO STUDENT8 (STUDENT_ID, STUDENT_NAME, DEPARTMENT, MARKS)
+  2  VALUES (101, 'ARUN', 'CSE', 85);
+
+1 row created.
+
+SQL>
+SQL> INSERT INTO STUDENT8 (STUDENT_ID, STUDENT_NAME, DEPARTMENT, MARKS)
+  2  VALUES (102, 'PRIYA', 'ECE', 90);
+
+1 row created.
+
+SQL>
+SQL> INSERT INTO STUDENT8 (STUDENT_ID, STUDENT_NAME, DEPARTMENT, MARKS)
+  2  VALUES (103, 'RAHUL', 'IT', 78);
+
+1 row created.
+
+SQL>
+SQL> INSERT INTO STUDENT8 (STUDENT_ID, STUDENT_NAME, DEPARTMENT, MARKS)
+  2  VALUES (104, 'DIVYA', 'CSE', 92);
+
+1 row created.
+
+SQL>
+SQL> INSERT INTO STUDENT8 (STUDENT_ID, STUDENT_NAME, DEPARTMENT, MARKS)
+  2  VALUES (105, 'KARTHIK', 'MECH', 75);
+
+1 row created.
+
+SQL>
+SQL> COMMIT;
+
+Commit complete.
+
+SQL> SELECT * FROM STUDENT8;
+
+STUDENT_ID STUDENT_NAME                   DEPARTMENT                MARKS
+---------- ------------------------------ -------------------- ----------
+       101 ARUN                           CSE                          85
+       102 PRIYA                          ECE                          90
+       103 RAHUL                          IT                           78
+       104 DIVYA                          CSE                          92
+       105 KARTHIK                        MECH                         75
+
+SQL> SELECT COUNT(*) AS TOTAL_STUDENTS
+  2  FROM STUDENT8;
+
+TOTAL_STUDENTS
+--------------
+             5
+
+SQL> SELECT SUM(MARKS) AS TOTAL_MARKS
+  2  FROM STUDENT8;
+
+TOTAL_MARKS
+-----------
+        420
+
+SQL> SELECT AVG(MARKS) AS AVERAGE_MARKS
+  2  FROM STUDENT8;
+
+AVERAGE_MARKS
+-------------
+           84
+
+SQL> SELECT MAX(MARKS) AS HIGHEST_MARK
+  2  FROM STUDENT8;
+
+HIGHEST_MARK
+------------
+          92
+
+SQL> SELECT MIN(MARKS) AS LOWEST_MARK
+  2  FROM STUDENT8;
+
+LOWEST_MARK
+-----------
+         75
+
+SQL> SELECT DEPARTMENT, AVG(MARKS) AS AVG_MARKS
+  2  FROM STUDENT8
+  3  GROUP BY DEPARTMENT;
+
+DEPARTMENT            AVG_MARKS
+-------------------- ----------
+IT                           78
+CSE                        88.5
+MECH                         75
+ECE                          90
+
+SQL> SELECT DEPARTMENT, COUNT(*) AS TOTAL_STUDENTS
+  2  FROM STUDENT8
+  3  GROUP BY DEPARTMENT;
+
+DEPARTMENT           TOTAL_STUDENTS
+-------------------- --------------
+IT                                1
+CSE                               2
+MECH                              1
+ECE                               1
+
+SQL> SELECT DEPARTMENT, MAX(MARKS) AS MAX_MARKS
+  2  FROM STUDENT8
+  3  GROUP BY DEPARTMENT;
+
+DEPARTMENT            MAX_MARKS
+-------------------- ----------
+IT                           78
+CSE                          92
+MECH                         75
+ECE                          90
+
+SQL> SELECT DEPARTMENT, AVG(MARKS) AS AVG_MARKS
+  2  FROM STUDENT8
+  3  GROUP BY DEPARTMENT
+  4  HAVING AVG(MARKS) > 85;
+
+DEPARTMENT            AVG_MARKS
+-------------------- ----------
+CSE                        88.5
+ECE                          90
+
+SQL> SELECT DEPARTMENT, COUNT(*) AS TOTAL_STUDENTS
+  2  FROM STUDENT8
+  3  GROUP BY DEPARTMENT
+  4  HAVING COUNT(*) > 1;
+
+DEPARTMENT           TOTAL_STUDENTS
+-------------------- --------------
+CSE                               2
+
+SQL> SELECT DEPARTMENT, COUNT(*) AS NO_OF_STUDENTS,
+  2   AVG(MARKS) AS AVG_MARKS, MAX(MARKS) AS HIGHEST_MARK
+  3  FROM STUDENT8
+  4  GROUP BY DEPARTMENT
+  5
+SQL> SELECT DEPARTMENT, COUNT(*) AS NO_OF_STUDENTS,
+  2   AVG(MARKS) AS AVG_MARKS, MAX(MARKS) AS HIGHEST_MARK
+  3  FROM STUDENT8
+  4  GROUP BY DEPARTMENT
+  5  SELECT DEPARTMENT, COUNT(*) AS NO_OF_STUDENTS,
+  6   AVG(MARKS) AS AVG_MARKS, MAX(MARKS) AS HIGHEST_MARK
+  7  FROM STUDENT8
+  8  GROUP BY DEPARTMENT
+  9  SELECT DEPARTMENT, COUNT(*) AS NO_OF_STUDENTS,
+ 10   AVG(MARKS) AS AVG_MARKS, MAX(MARKS) AS HIGHEST_MARK
+ 11  FROM STUDENT8
+ 12
+SQL>
+SQL> SELECT DEPARTMENT, COUNT(*) AS NO_OF_STUDENTS,
+  2   AVG(MARKS) AS AVG_MARKS, MAX(MARKS) AS HIGHEST_MARK
+  3  FROM STUDENT8
+  4  GROUP BY DEPARTMENT
+  5  HAVING AVG(MARKS) > 80;
+
+DEPARTMENT           NO_OF_STUDENTS  AVG_MARKS HIGHEST_MARK
+-------------------- -------------- ---------- ------------
+CSE                               2       88.5           92
+ECE                               1         90           90
+
+SQL>
+SQL> SELECT * FROM STUDENT8;
+
+STUDENT_ID STUDENT_NAME                   DEPARTMENT                MARKS
+---------- ------------------------------ -------------------- ----------
+       101 ARUN                           CSE                          85
+       102 PRIYA                          ECE                          90
+       103 RAHUL                          IT                           78
+       104 DIVYA                          CSE                          92
+       105 KARTHIK                        MECH                         75
+
+
+
